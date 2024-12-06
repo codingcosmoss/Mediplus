@@ -38,9 +38,9 @@
         <link rel="stylesheet" href="{{asset('')}}asset/css/magnific-popup.css">
 		
 		<!-- Medipro CSS -->
-        <link rel="stylesheet" href="css/{{asset('')}}asset/css/normalize.css">
-        <link rel="stylesheet" href="{{asset('')}}asset/css/style.css">
-        <link rel="stylesheet" href="css/{{asset('')}}asset/css/responsive.css">
+        <link rel="stylesheet" href="{{asset('')}}asset/css/normalize.css">
+        <link rel="stylesheet" href="{{asset('')}}asset/style.css">
+        <link rel="stylesheet" href="{{asset('')}}asset/css/responsive.css">
 		
     </head>
     <body>
@@ -130,6 +130,8 @@
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul>
 											</li>
+
+
 											<li><a href="#">Doctos </a></li>
 											<li><a href="#">Services </a></li>
 											<li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
@@ -137,9 +139,9 @@
 													<li><a href="404.html">404 Error</a></li>
 												</ul>
 											</li>
-											<li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
+											<li><a href="{{route('blogs')}}">Blogs <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="blog-single.html">Blog Details</a></li>
+													<li><a href="{{route('blogs')}}">Blog Details</a></li>
 												</ul>
 											</li>
 											<li><a href="contact.html">Contact Us</a></li>
