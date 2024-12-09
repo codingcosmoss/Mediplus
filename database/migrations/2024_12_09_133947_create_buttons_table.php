@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('buttons', function (Blueprint $table) {
             $table->id();
-            $table->integer('section_id')->nullable();
-            $table->string('title')->unique();
+            $table->integer('section_id');
+            $table->string('title');
             $table->string('link')->nullable();
             $table->timestamps();
         });
