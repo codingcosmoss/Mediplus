@@ -1,17 +1,6 @@
 
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="">
@@ -24,6 +13,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Fonts-->
 		<!--begin::Page Vendors Styles(used by this page)-->
 		<link href="{{asset('')}}admin/plugins/custom/fullcalendar/fullcalendar.bundle.css?v=7.0.3" rel="stylesheet" type="text/css" />
+		
 		<!--end::Page Vendors Styles-->
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="{{asset('')}}admin/plugins/global/plugins.bundle.css?v=7.0.3" rel="stylesheet" type="text/css" />
@@ -31,6 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{asset('')}}admin/css/style.bundle.css?v=7.0.3" rel="stylesheet" type="text/css" />
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
+		
 		<link href="{{asset('')}}admin/css/themes/layout/header/base/light.css?v=7.0.3" rel="stylesheet" type="text/css" />
 		<link href="{{asset('')}}admin/css/themes/layout/header/menu/light.css?v=7.0.3" rel="stylesheet" type="text/css" />
 		<link href="{{asset('')}}admin/css/themes/layout/brand/dark.css?v=7.0.3" rel="stylesheet" type="text/css" />
