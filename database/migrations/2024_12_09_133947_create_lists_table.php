@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('lists', function (Blueprint $table) {
             $table->id();
+            $table->integer('section_id')->nullable();
             $table->integer('item_id')->nullable();
             $table->string('title');
             $table->string('link')->nullable();
