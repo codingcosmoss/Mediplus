@@ -25,6 +25,7 @@ class ItemSeeder extends Seeder
             $newSliderItem->section_id = $sectionId;
             $newSliderItem->title = 'We Provide Medical Services Than You can Trust';
             $newSliderItem->text = 'Lorem ipsum dolor sit amet sit sit amet';
+            $newSliderItem->image = 'images/46.jpg';
             $newSliderItem->save();
         }
 
@@ -40,6 +41,7 @@ class ItemSeeder extends Seeder
             $newSliderItem->title = 'Emergency Cases';
             $newSliderItem->text = 'Lorem Amet';
             $newSliderItem->description = 'Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.';
+            $newSliderItem->image = 'images/46.jpg';
             $newSliderItem->save();
         }
 
@@ -54,6 +56,7 @@ class ItemSeeder extends Seeder
             $newSliderItem->section_id = $sectionId;
             $newSliderItem->title = 'Emergency Help';
             $newSliderItem->text = 'Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.';
+            $newSliderItem->image = 'images/46.jpg';
             // $newSliderItem->description = 'Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.';
             $newSliderItem->save();
         }
@@ -71,6 +74,7 @@ class ItemSeeder extends Seeder
             $newSliderItem->section_id = $sectionId;
             $newSliderItem->title = '3468';
             $newSliderItem->text = 'Hospital Rooms';
+            $newSliderItem->image = 'images/46.jpg';
             // $newSliderItem->description = 'Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.';
             $newSliderItem->save();
         }

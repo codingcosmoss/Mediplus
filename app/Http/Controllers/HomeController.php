@@ -7,8 +7,7 @@ use App\Models\User;
 use App\Models\Item;
 use App\Models\Button;
 use App\Models\Lists;
-
-
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,6 +16,7 @@ class HomeController extends Controller
      * Display a listing of the resource.
      */
 
+    
 
 
     public function index()
@@ -159,6 +159,7 @@ class HomeController extends Controller
     $item->description = $request->input('description'); // Formadan kelgan yangi description
     $item->text = $request->input('title');
     $item->link = $request->input('link');
+
     if ($request->hasFile('image')) {
         $paths = [];
         $images = $request->file('image');
@@ -167,17 +168,34 @@ class HomeController extends Controller
             array_push($paths, $path);
         }
 
-        $item->image = json_encode($paths);
+        $item->image = $paths[0];
     }
+
     // 4. O'zgartirilgan ma'lumotlarni saqlash
     $item->save();
 
-    $button->title = $request->input('button-title');
-    $button->link = $request->input('button-link');
+    // $button->title = $request->input('button-title');
+    // $button->link = $request->input('button-link');
     
     $button->save();
     
-    
+    $section = Section::find($item->section_id);
+    $items = Item::where('section_id', $section->id )->get();
+    if ($section->name == 'home') {
+
+        return view('Admin.app.item', compact('items'));
+
+    }else if ($section->name == 'hours') {
+        return view('Admin.app.itemHour', compact('items'));
+
+    }else if ($section->name == 'helper') {
+        return view('Admin.app.itemHelper', compact('items'));
+
+    }else if ($section->name == 'numbers') {
+        return view('Admin.app.itemNumbers', compact('items'));
+
+    }
+
     return view('Admin.app.index');
 }
 

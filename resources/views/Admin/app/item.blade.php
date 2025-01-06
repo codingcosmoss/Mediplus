@@ -280,12 +280,12 @@ License: You must have a valid license purchased only from themeforest(the above
             </thead>
             <tbody>
                 
-            @foreach($array as $item)
+            @foreach($items as $item)
     <tr>
         <td class="pl-0 py-4">
             <div class="symbol symbol-50 symbol-light mr-1">
                 <span class="symbol-label">
-                    <img src="assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="">
+                    <img src="{{asset('')}}storage/{{$item->image}}" class="h-50 align-self-center" alt="">
                 </span>
             </div>
         </td>
