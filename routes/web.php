@@ -34,6 +34,12 @@ Route::get('/admin2/item', [HomeController::class, 'itemShow'])->name('item.show
 Route::get('/admin2/item/openhours', [HomeController::class, 'openHoursItem'])->name('hours.show');
 Route::get('/admin2/item/helper', [HomeController::class, 'HelpersItem'])->name('helpers.show');
 Route::get('/admin2/item/numbers', [HomeController::class, 'NumbersItem'])->name('numbers.show');
+Route::get('/admin2/item/health', [HomeController::class, 'HealthItems'])->name('health.show');
+Route::get('/admin2/item/call', [HomeController::class, 'CallItems'])->name('call.show');
+Route::get('/admin2/item/images', [HomeController::class, 'imagesItems'])->name('images.show');
+Route::get('/admin2/item/differentServices', [HomeController::class, 'differentServices'])->name('differentServices.show');
+Route::get('/admin2/item/prices', [HomeController::class, 'prices'])->name('prices.show');
+Route::get('/admin2/item/medicalNews', [HomeController::class, 'medicalNews'])->name('medicalNews.show');
 
 
 Route::get('/admin2/item/update/{id}', [HomeController::class, 'itemUpdate'])->name('item.update');
@@ -55,5 +61,7 @@ Route::get('/admin2/item/button/delete/{id}/{slug}', [HomeController::class, 'Bu
 //     return view('Admin.app.item');
 // });
 
+Route::get('/admin2/section/show/{id}', [HomeController::class, 'sectionShow'])->name('section.show');
+Route::post('/admin2/section/edit/{id}' ,[HomeController::class, 'sectionEdit'])->name('section.edit');
 
 Route::resource('home', HomeController::class);

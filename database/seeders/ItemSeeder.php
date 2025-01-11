@@ -78,6 +78,120 @@ class ItemSeeder extends Seeder
             // $newSliderItem->description = 'Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.';
             $newSliderItem->save();
         }
+
+
+        
+        $healthArray = ['Item 1'];
+
+        
+        foreach ($healthArray as $key => $value) {
+            $section = Section::where('name', 'health')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'Who We Are';
+
+            $newSliderItem->text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo.';
+            $newSliderItem->image = 'images/46.jpg';
+            $newSliderItem->description = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.';
+            $newSliderItem->save();
+        }
+
+
+        $call = ['Item 1'];
+
+        
+        foreach ($call as $key => $value) {
+            $section = Section::where('name', 'call')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'Do you need Emergency Medical Care? Call @ 1234 56789';
+
+            $newSliderItem->text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis nec gravida.';
+            $newSliderItem->image = 'images/46.jpg';
+            // $newSliderItem->description = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.';
+            $newSliderItem->save();
+        }
+
+
+        
+        $imagesArray = ['Item 1' , 'item 2' , 'item 3' ,'item 4'];
+
+        
+        foreach ($imagesArray as $key => $value) {
+            $section = Section::where('name', 'images')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'View Details';
+            $newSliderItem->link = 'example.com/link';
+            $newSliderItem->image = 'images/46.jpg';
+            // $newSliderItem->description = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.';
+            $newSliderItem->save();
+        }
+
+
+                
+        $differentServiceArr = ['Item 1' , 'item 2' , 'item 3' ,'item 4' , 'Item 5' , 'Item 6'];
+
+        
+        foreach ($differentServiceArr as $key => $value) {
+            $section = Section::where('name', 'differentServices')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'General Treatment';
+            // $newSliderItem->link = 'example.com/link';
+            $newSliderItem->image = 'images/46.jpg';
+            $newSliderItem->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.';
+            $newSliderItem->save();
+        }
+
+        $pricesItems = ['Item 1' , 'Item 2' , 'Item 3'];
+                
+        foreach ($pricesItems as $key => $value) {
+            $section = Section::where('name', 'prices')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'Plastic Suggery';
+            $newSliderItem->text = '199$';
+            // $newSliderItem->link = 'example.com/link';
+            $newSliderItem->image = 'images/46.jpg';
+            $newSliderItem->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.';
+            $newSliderItem->save();
+        }
+
+
+        
+        $medicalNews = ['Item 1' , 'Item 2' , 'Item 3'];
+                
+        foreach ($pricesItems as $key => $value) {
+            $section = Section::where('name', 'medicalNews')->first();
+            $sectionId = $section ? $section->id : null;
+    
+            // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
+            $newSliderItem = new Item();
+            $newSliderItem->section_id = $sectionId;
+            $newSliderItem->title = 'Top five way for solving teeth problems.';
+            // $newSliderItem->text = 'Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.';
+            // $newSliderItem->link = 'example.com/link';
+            $newSliderItem->image = 'images/46.jpg';
+            $newSliderItem->description = 'Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.';
+            $newSliderItem->save();
+        }
+
     }
     
 }

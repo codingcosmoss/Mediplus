@@ -73,6 +73,85 @@
 												</a>
 												
 											</li>
+
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/health" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Health</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/call" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Call</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/images" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Images</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/differentServices" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Different Services</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/prices" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Prices</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+
+											
+											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+												<a href="/admin2/item/medicalNews" class="menu-link menu-toggle">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Medical News</span>
+													
+													<i class="menu-arrow"></i>
+												</a>
+												
+											</li>
+
+
+
 										</ul>
 									</div>
 								</li>

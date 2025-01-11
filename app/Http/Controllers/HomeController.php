@@ -48,11 +48,26 @@ class HomeController extends Controller
         //
     }
 
+    public function sectionShow(string $id) {
+        $section = Section::where('id' , $id)->get();
+        return view('Admin.app.sectionEdit' , compact('section' , 'id'));
+    }
+
+    public function sectionEdit(Request $request, $id) {
+     $sectionFind = Section::find($id);
+     $sectionFind->title = $request->input('title');
+     $sectionFind->description = $request->input('description');
+     $sectionFind->text = $request->input('text');
+     $sectionFind->save();
+     $section = Section::where('id' , $id)->get();
+     $items = Item::where('section_id', $id)->get();
+    return view('Admin.app.item' , compact('items' , 'section'));
+    }
     public function itemShow()
     {
         $items = Item::where('section_id', 1)->get();
         $buttons = Lists::where('section_id' , 1)->get();
-
+        $section = Section::where('id' , 1)->get();
         $array = $items;
 
         foreach ($array as $index => $firstObj) {
@@ -66,13 +81,14 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.item' , compact('items' , 'array'));
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
     }
 
     public function openHoursItem()
     {
         $items = Item::where('section_id', 2)->get();
         $buttons = Lists::where('section_id' , 2)->get();
+        $section = Section::where('id' , 2)->get();
 
         $array = $items;
 
@@ -87,7 +103,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemHour' , compact('items' , 'array'));
+        return view('Admin.app.itemHour' , compact('items' , 'array' , 'section'));
     }
 
 
@@ -95,6 +111,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 3)->get();
         $buttons = Lists::where('section_id' , 3)->get();
+        $section = Section::where('id' , 3)->get();
 
         $array = $items;
 
@@ -109,7 +126,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemHelper' , compact('items' , 'array'));
+        return view('Admin.app.itemHelper' , compact('items' , 'array' , 'section'));
     }
 
 
@@ -117,6 +134,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 4)->get();
         $buttons = Lists::where('section_id' , 4)->get();
+        $section = Section::where('id' , 4)->get();
 
         $array = $items;
 
@@ -131,9 +149,152 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemNumbers' , compact('items' , 'array'));
+        return view('Admin.app.itemNumbers' , compact('items' , 'array' , 'section'));
+    }
+
+    
+    public function HealthItems()
+    {
+        $items = Item::where('section_id', 5)->get();
+        $buttons = Lists::where('section_id' , 5)->get();
+        $section = Section::where('id' , 5)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
     }
     
+    
+    public function CallItems()
+    {
+        $items = Item::where('section_id', 6)->get();
+        $buttons = Lists::where('section_id' , 6)->get();
+        $section = Section::where('id' , 6)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
+    }
+    
+
+    public function imagesItems() {
+        
+        $items = Item::where('section_id', 7)->get();
+        $buttons = Lists::where('section_id' , 7)->get();
+        $section = Section::where('id' , 7)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
+    }
+
+
+    
+    public function differentServices() {
+        
+        $items = Item::where('section_id', 8)->get();
+        $buttons = Lists::where('section_id' , 8)->get();
+        $section = Section::where('id' , 8)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
+    }
+
+
+        
+    public function prices() {
+        
+        $items = Item::where('section_id', 9)->get();
+        $buttons = Lists::where('section_id' , 9)->get();
+        $section = Section::where('id' , 9)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
+    }
+
+
+       
+    public function medicalNews() {
+        
+        $items = Item::where('section_id', 10)->get();
+        $buttons = Lists::where('section_id' , 10)->get();
+        $section = Section::where('id' , 10)->get();
+
+        $array = $items;
+
+        foreach ($array as $index => $firstObj) {
+            // Ikkinchi arraydan mos keluvchi elementni olish
+            $secondObj = $buttons[$index] ?? null;
+    
+            // Agar mos element bo'lsa, `title` va `link` qo'shish
+            if ($secondObj) {
+                $firstObj->slider_title = $secondObj->title;
+                $firstObj->slider_link = $secondObj->link;
+            }
+        }
+
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
+    }
+
+
+
 
 
 
@@ -157,7 +318,7 @@ class HomeController extends Controller
     // 3. Request orqali kelgan yangi ma'lumotlarni o'zgartirish
     $item->title = $request->input('title'); // Formadan kelgan yangi title
     $item->description = $request->input('description'); // Formadan kelgan yangi description
-    $item->text = $request->input('title');
+    $item->text = $request->input('text');
     $item->link = $request->input('link');
 
     if ($request->hasFile('image')) {
@@ -174,10 +335,6 @@ class HomeController extends Controller
     // 4. O'zgartirilgan ma'lumotlarni saqlash
     $item->save();
 
-    // $button->title = $request->input('button-title');
-    // $button->link = $request->input('button-link');
-    
-    $button->save();
     
     $section = Section::find($item->section_id);
     $items = Item::where('section_id', $section->id )->get();
@@ -233,6 +390,23 @@ public function itemAddComplete(Request $request, $id) {
     $item->save();
 
 
+    $section = Section::find($item->section_id);
+    $items = Item::where('section_id', $section->id )->get();
+    if ($section->name == 'home') {
+
+        return view('Admin.app.item', compact('items'));
+
+    }else if ($section->name == 'hours') {
+        return view('Admin.app.itemHour', compact('items'));
+
+    }else if ($section->name == 'helper') {
+        return view('Admin.app.itemHelper', compact('items'));
+
+    }else if ($section->name == 'numbers') {
+        return view('Admin.app.itemNumbers', compact('items'));
+
+    }
+
     return view('Admin.app.index');
 
 }
@@ -273,6 +447,23 @@ public function itemDelete(string $id) {
         $item->delete();
     }
 
+    $section = Section::find($item->section_id);
+    $items = Item::where('section_id', $section->id )->get();
+    if ($section->name == 'home') {
+
+        return view('Admin.app.item', compact('items'));
+
+    }else if ($section->name == 'hours') {
+        return view('Admin.app.itemHour', compact('items'));
+
+    }else if ($section->name == 'helper') {
+        return view('Admin.app.itemHelper', compact('items'));
+
+    }else if ($section->name == 'numbers') {
+        return view('Admin.app.itemNumbers', compact('items'));
+
+    }
+
     return view('Admin.app.index');
 }
 
@@ -297,6 +488,7 @@ public function ButtonUpdateShow(string $id , string $slug) {
 
 public function ButtonUpdate(Request $request, string $id , string $slug) {
     $button = Lists::where('item_id', $id)->where('id', $slug)->first();
+    $buttonData = Lists::where('item_id' , $id)->get();
 
     // Ma'lumot mavjudligini tekshirish
     if ($button) {
@@ -304,6 +496,23 @@ public function ButtonUpdate(Request $request, string $id , string $slug) {
         $button->title = $request->title;
         $button->link = $request->link;
         $button->save(); // Bazaga saqlash
+
+        $section = Section::find($button->section_id);
+        $items = Item::where('section_id', $section->id )->get();
+        if ($section->name == 'home') {
+    
+            return view('Admin.app.item', compact('buttonData'));
+    
+        }else if ($section->name == 'hours') {
+            return view('Admin.app.itemHour', compact('buttonData'));
+    
+        }else if ($section->name == 'helper') {
+            return view('Admin.app.itemHelper', compact('buttonData'));
+    
+        }else if ($section->name == 'numbers') {
+            return view('Admin.app.itemNumbers', compact('buttonData'));
+    
+        }
 
         return view('Admin.app.index');
     } else {
@@ -313,8 +522,25 @@ public function ButtonUpdate(Request $request, string $id , string $slug) {
 
 public function ButtonDelete(string $id , string $slug) {
     $button = Lists::where('item_id', $id)->where('id', $slug)->first();
-
+    $buttonData = Lists::where('item_id' , $id)->get();
     $button->delete();
+
+    $section = Section::find($button->section_id);
+        $items = Item::where('section_id', $section->id )->get();
+        if ($section->name == 'home') {
+    
+            return view('Admin.app.item', compact('buttonData'));
+    
+        }else if ($section->name == 'hours') {
+            return view('Admin.app.itemHour', compact('buttonData'));
+    
+        }else if ($section->name == 'helper') {
+            return view('Admin.app.itemHelper', compact('buttonData'));
+    
+        }else if ($section->name == 'numbers') {
+            return view('Admin.app.itemNumbers', compact('buttonData'));
+    
+        }
 
     return view('Admin.app.index');
 }

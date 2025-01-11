@@ -34,5 +34,50 @@ $newSection4 = new Section();
 $newSection4->name = 'numbers';
 $newSection4->title = 'our-numbers';
 $newSection4->save();
+
+$newSection5 = new Section();
+$newSection5->name = 'health';
+$newSection5->title = 'We Offer Different Services To Improve Your Health';
+$newSection5->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection5->save();
+
+
+
+$newSection6 = new Section();
+$newSection6->name = 'call';
+$newSection6->title = 'Call @ 1234 56789';
+// $newSection5->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection6->save();
+
+
+
+$newSection7 = new Section();
+$newSection7->name = 'images';
+$newSection7->title = 'Images section';
+// $newSection5->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection7->save();
+
+
+$newSection8 = new Section();
+$newSection8->name = 'differentServices';
+$newSection8->title = 'We Offer Different Services To Improve Your Health';
+$newSection8->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection8->save();
+
+
+// newSection 9 qolb ketmoqda u Plastic Suggery $199/ Per Visit shu text bor section qoww kerak bolsa shu o'rtada qoshb ketw kerak
+$newSection9 = new Section();
+$newSection9->name = 'prices';
+$newSection9->title = 'We Provide You The Best Treatment In Resonable Price';
+$newSection9->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection9->save();
+
+
+$newSection10 = new Section();
+$newSection10->name = 'medicalNews';
+$newSection10->title = 'Keep up with Our Most Recent Medical News.';
+$newSection10->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection10->save();
+
     }
 }

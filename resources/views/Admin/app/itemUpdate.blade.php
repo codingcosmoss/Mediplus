@@ -277,31 +277,31 @@ License: You must have a valid license purchased only from themeforest(the above
 														<input type="text" class="form-control" placeholder="Enter text" name='title' value="{{ $item[0]['title'] }}" >
 														<span class="form-text text-muted">We'll never share your email with anyone else.</span>
 													</div>
+													@if (!in_array($item[0]['section_id'], [7 , 8 , 10]))
 													<div class="form-group">
 														<label for="exampleInputPassword1">Text</label>
 														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter text" name="text" value="{{ $item[0]['text'] }}" >
 													</div>
-													<div class="form-group">
-														<label>Description:</label>
-														<input type='text' class="form-control" name='description' value="{{ $item[0]['description'] }}" >
-													</div>
+													@endif
 
-                                                    <div class="form-group">
-														<label>Link:</label>
-														<input type='text' class="form-control" name="link" value="{{ $item[0]['link'] }}" >
-													</div>
+													@if (!in_array($item[0]['section_id'], [1, 3 , 4 , 6 , 7]))
+    <div class="form-group">
+        <label>Description:</label>
+        <input type='text' class="form-control" name='description' value="{{ $item[0]['description'] }}" >
+    </div>
+	@endif
 
-                                                    <div class="form-group">
-														<label>Button title:</label>
-														<input type='text' class="form-control" name="button-title" value="{{ $button[0]['title'] }}" >
-													</div>
 
-                                                    
-                                                    <div class="form-group">
-														<label>Button link:</label>
-														<input type='text' class="form-control" name="button-link" value="{{ $button[0]['link'] }}" >
-													</div>
-													
+	@if (!in_array($item[0]['section_id'], [1, 2 , 3 , 4 , 8, 9, 10]))
+
+    <div class="form-group">
+        <label>Link:</label>
+        <input type='text' class="form-control" name="link" value="{{ $item[0]['link'] }}" >
+    </div>
+	@endif
+
+
+
 													<div class="form-group mb-1">
 														<label for="exampleTextarea">Example textarea</label>
 														<input class="form-control" multiple type="file" name="image[]"
