@@ -21,7 +21,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return 'salom';
+        $home = Section::where('name', 'home')->first();
+
+        return view('home', compact('home'));
     }
 
     /**
@@ -35,6 +37,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         //
@@ -49,7 +52,7 @@ class HomeController extends Controller
     }
 
     public function sectionShow(string $id) {
-        $section = Section::where('id' , $id)->get();
+        $section = Section::where('id' , $id)->first();
         return view('Admin.app.sectionEdit' , compact('section' , 'id'));
     }
 
@@ -59,7 +62,7 @@ class HomeController extends Controller
      $sectionFind->description = $request->input('description');
      $sectionFind->text = $request->input('text');
      $sectionFind->save();
-     $section = Section::where('id' , $id)->get();
+     $section = Section::where('id' , $id)->first();
      $items = Item::where('section_id', $id)->get();
     return view('Admin.app.item' , compact('items' , 'section'));
     }
@@ -67,7 +70,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 1)->get();
         $buttons = Lists::where('section_id' , 1)->get();
-        $section = Section::where('id' , 1)->get();
+        $section = Section::where('id' , 1)->first();
         $array = $items;
 
         foreach ($array as $index => $firstObj) {
@@ -88,7 +91,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 2)->get();
         $buttons = Lists::where('section_id' , 2)->get();
-        $section = Section::where('id' , 2)->get();
+        $section = Section::where('id' , 2)->first();
 
         $array = $items;
 
@@ -111,7 +114,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 3)->get();
         $buttons = Lists::where('section_id' , 3)->get();
-        $section = Section::where('id' , 3)->get();
+        $section = Section::where('id' , 3)->first();
 
         $array = $items;
 
@@ -134,7 +137,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 4)->get();
         $buttons = Lists::where('section_id' , 4)->get();
-        $section = Section::where('id' , 4)->get();
+        $section = Section::where('id' , 4)->first();
 
         $array = $items;
 
@@ -157,7 +160,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 5)->get();
         $buttons = Lists::where('section_id' , 5)->get();
-        $section = Section::where('id' , 5)->get();
+        $section = Section::where('id' , 5)->first();
 
         $array = $items;
 
@@ -180,7 +183,7 @@ class HomeController extends Controller
     {
         $items = Item::where('section_id', 6)->get();
         $buttons = Lists::where('section_id' , 6)->get();
-        $section = Section::where('id' , 6)->get();
+        $section = Section::where('id' , 6)->first();
 
         $array = $items;
 
@@ -203,7 +206,7 @@ class HomeController extends Controller
         
         $items = Item::where('section_id', 7)->get();
         $buttons = Lists::where('section_id' , 7)->get();
-        $section = Section::where('id' , 7)->get();
+        $section = Section::where('id' , 7)->first();
 
         $array = $items;
 
@@ -227,7 +230,7 @@ class HomeController extends Controller
         
         $items = Item::where('section_id', 8)->get();
         $buttons = Lists::where('section_id' , 8)->get();
-        $section = Section::where('id' , 8)->get();
+        $section = Section::where('id' , 8)->first();
 
         $array = $items;
 
@@ -251,7 +254,7 @@ class HomeController extends Controller
         
         $items = Item::where('section_id', 9)->get();
         $buttons = Lists::where('section_id' , 9)->get();
-        $section = Section::where('id' , 9)->get();
+        $section = Section::where('id' , 9)->first();
 
         $array = $items;
 
@@ -275,7 +278,7 @@ class HomeController extends Controller
         
         $items = Item::where('section_id', 10)->get();
         $buttons = Lists::where('section_id' , 10)->get();
-        $section = Section::where('id' , 10)->get();
+        $section = Section::where('id' , 10)->first();
 
         $array = $items;
 
@@ -338,7 +341,10 @@ class HomeController extends Controller
     
     $section = Section::find($item->section_id);
     $items = Item::where('section_id', $section->id )->get();
-    return view('Admin.app.item', compact('items'));
+
+
+    return view('Admin.app.item', compact('items', 'section'));
+
 }
 
 
@@ -374,7 +380,7 @@ public function itemAddComplete(Request $request, $id) {
     // 4. O'zgartirilgan ma'lumotlarni saqlash
     $item->save();
 
-    $section = Section::where('id' , $id)->get();
+    $section = Section::where('id' , $id)->first();
     $items = Item::where('section_id', $id  )->get();
     return view('Admin.app.item', compact('items' , 'section'));
 }
@@ -428,15 +434,17 @@ public function itemAddComplete(Request $request, $id) {
 public function itemDelete(string $id , string $slug) {
     $item = Item::find($id);
     
+    $section = Section::where('id', $item->section_id )->first();
+    $items = Item::where('section_id', $section->id)->get();
+    
     if($item) {
         $item->delete();
     }
-    
-    // $section = Section::where('id', $slug)->first();
-    // $items = Item::where('section_id', $slug)->get();
+
+    return back();
     // return view('Admin.app.item', compact('items' , 'section'));
 
-    return view('Admin.app.index');
+    // return view('Admin.app.index');
 }
 
 // public function itemButtonShow(string $id) {

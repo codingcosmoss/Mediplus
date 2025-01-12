@@ -256,7 +256,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <ul class="nav nav-pills nav-pills-sm nav-dark-75">
 
             <li class="nav-item">
-			<form action="{{ route('item.add', ['id' => $items[0]['section_id']]) }}" method="GET">
+			<form action="{{ route('item.add', ['id' => $section->id ]) }}" method="GET">
 
 				<button class="nav-link py-2 px-4 disabled" type='submit'> 
 					New Section
@@ -284,7 +284,6 @@ License: You must have a valid license purchased only from themeforest(the above
             </thead>
             <tbody>
                 
-            @foreach($section as $item)
     <tr>
         <td class="pl-0 py-4">
             <div class="symbol symbol-50 symbol-light mr-1">
@@ -292,7 +291,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
         </td>
         <td class="pl-0">
-            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">{{ $item->title ?? 'Malumot yoq' }}</a>
+            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">{{ $section->title ?? 'Malumot yoq' }}</a>
             <div>
 				<div style="display:flex; flex-direction:column;">
 		
@@ -303,25 +302,25 @@ License: You must have a valid license purchased only from themeforest(the above
         </td>
 		<td class="text-right">
             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">Text</span>
-            <span class="text-muted font-weight-bold">{{ $item->text ?? "Ma'lumot yo'q" }}</span>
+            <span class="text-muted font-weight-bold">{{ $section->text ?? "Ma'lumot yo'q" }}</span>
         </td>
 		<td class="text-right">
             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">Description</span>
-            <span class="text-muted font-weight-bold">{{ $item->description ?? "Ma'lumot yo'q" }}</span>
+            <span class="text-muted font-weight-bold">{{ $section->description ?? "Ma'lumot yo'q" }}</span>
         </td>
         <td class="text-right">
             <span class="text-dark-75 font-weight-bolder d-block font-size-lg">Created at</span>
-            <span class="text-muted font-weight-bold">{{$item->created_at ?? 'Malumot yoq'}}</span>
+            <span class="text-muted font-weight-bold">{{$section->created_at ?? 'Malumot yoq'}}</span>
         </td>
         <td class="text-right">
         <span class="text-dark-75 font-weight-bolder d-block font-size-lg">Updated at</span>
-            <span class="text-muted font-weight-500">{{$item->updated_at ?? 'Malumot yoq'}}</span>
+            <span class="text-muted font-weight-500">{{$section->updated_at ?? 'Malumot yoq'}}</span>
         </td>
 
 
 
         <td class="text-right d-flex align-items-center pt-6 pr-0">
-				<form action="{{route('section.show' , ['id' => $item->id])}}" method='GET'>
+				<form action="{{route('section.show' , ['id' => $section->id])}}" method='GET'>
 
                         <button type='submit' class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                             <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -339,7 +338,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
     </tr>
-@endforeach
 
             </tbody>
         </table>
@@ -367,7 +365,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<ul class="nav nav-pills nav-pills-sm nav-dark-75">
 	
 				<li class="nav-item">
-				<form action="{{ route('item.add', ['id' => $items[0]['section_id']]) }}" method="GET">
+				<form action="{{ route('item.add', ['id' => $section->id]) }}" method="GET">
 	
 					<button class="nav-link py-2 px-4 active" type='submit'> 
 						New Item
