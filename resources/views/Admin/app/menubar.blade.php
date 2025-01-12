@@ -27,7 +27,14 @@
 													<span class="menu-text">Applications</span>
 												</span>
 											</li>
-											<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+
+
+
+										</ul>
+									</div>
+								</li>
+
+								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 												<a href="/admin2/item" class="menu-link menu-toggle">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
@@ -150,11 +157,6 @@
 												
 											</li>
 
-
-
-										</ul>
-									</div>
-								</li>
 							</ul>
 
 						</div>

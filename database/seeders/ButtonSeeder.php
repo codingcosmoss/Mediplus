@@ -126,8 +126,36 @@ foreach ($sections as $section) { // Har bir section id uchun loop
             $newSliderButton = new Lists();
             $newSliderButton->section_id = 9; // section_id ni tayinlash
             $newSliderButton->item_id = $section;   // item_id ni tayinlash
-            $newSliderButton->title = 'Book Now'; // Faqat bitta umumiy title
-            $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
+            $newSliderButton->title = 'Lorem ipsum dolor sit amet'; // Faqat bitta umumiy title
+            // $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
+            $newSliderButton->save();
+
+            $newSliderButton = new Lists();
+            $newSliderButton->section_id = 9; // section_id ni tayinlash
+            $newSliderButton->item_id = $section;   // item_id ni tayinlash
+            $newSliderButton->title = 'Cubitur sollicitudin fentum'; // Faqat bitta umumiy title
+            // $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
+            $newSliderButton->save();
+
+            $newSliderButton = new Lists();
+            $newSliderButton->section_id = 9; // section_id ni tayinlash
+            $newSliderButton->item_id = $section;   // item_id ni tayinlash
+            $newSliderButton->title = 'Nullam interdum enim'; // Faqat bitta umumiy title
+            // $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
+            $newSliderButton->save();
+
+            $newSliderButton = new Lists();
+            $newSliderButton->section_id = 9; // section_id ni tayinlash
+            $newSliderButton->item_id = $section;   // item_id ni tayinlash
+            $newSliderButton->title = 'Donec ultricies metus'; // Faqat bitta umumiy title
+            // $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
+            $newSliderButton->save();
+
+            $newSliderButton = new Lists();
+            $newSliderButton->section_id = 9; // section_id ni tayinlash
+            $newSliderButton->item_id = $section;   // item_id ni tayinlash
+            $newSliderButton->title = 'Pellentesque eget nibh'; // Faqat bitta umumiy title
+            // $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
             $newSliderButton->save();
         
         }   

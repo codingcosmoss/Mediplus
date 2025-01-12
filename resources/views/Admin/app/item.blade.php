@@ -333,7 +333,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
                                     </g>
                                 </svg>
-                                <!--end::Svg Icon-->
                             </span>
 </button>
 </form>
@@ -354,7 +353,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-<div style='margin: 300px 0px 0px' class="content d-flex flex-column flex-column-fluid" id="kt_content">
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						
 						<div class="card card-custom card-stretch gutter-b ml-3 mr-3">
 	<!--begin::Item Malumotlari-->
@@ -372,7 +371,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	
 					<button class="nav-link py-2 px-4 active" type='submit'> 
 						New Item
-					</button>
+						</button>
 				</form>
 				</li>
 			</ul>
@@ -423,8 +422,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	
 			<form action="{{ route('button.show', ['id' => $item->id ] ) }}">
 				<td class="text-right">
-					<button type='submit' class="label label-lg label-light-primary label-inline">Buttonlarni ko'rish</span>
-					<!-- <button type='submit' class="label label-lg label-light-primary label-inline">{{$item->slider_title}}</span> -->
+					<button type='submit' class="label label-lg label-light-primary label-inline">(Button , List) ko'rish</span>
 				</td>
 			</form>
 	
@@ -487,7 +485,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													Section ma'lumotlarini aniq o'chirmoqchimisiz?
 												</div>
 												<div class="modal-footer">
-												<form action="{{route('item.delete' , ['id' => $item->id])}}" method='GET'>
+												<form action="{{route('item.delete' , ['id' => $item->id , 'slug' => $item->section_id])}}" method='GET'>
 																		<!-- @csrf -->
 													<input type="hidden" value="{{$item->id}}" name='delete'>
 													<button type="button" class="btn btn-light-danger font-weight-bold" data-dismiss="modal">Close</button>

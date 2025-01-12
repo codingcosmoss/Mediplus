@@ -44,7 +44,7 @@ Route::get('/admin2/item/medicalNews', [HomeController::class, 'medicalNews'])->
 
 Route::get('/admin2/item/update/{id}', [HomeController::class, 'itemUpdate'])->name('item.update');
 Route::post('/admin2/item/edit/{id}', [HomeController::class, 'itemEdit'])->name('item.edit');
-Route::get('/admin2/item/delete/{id}', [HomeController::class, 'itemDelete'])->name('item.delete');
+Route::get('/admin2/item/delete/{id}/{slug}', [HomeController::class, 'itemDelete'])->name('item.delete');
 Route::get('/admin2/item/add/{id}', [HomeController::class, 'itemAdd'])->name('item.add');
 // Route::get('/admin2/itemHour/add/{id}', [HomeController::class, 'itemHourAdd'])->name('itemHour.add');
 Route::get('/admin2/item/addComplete/{id}', [HomeController::class, 'itemAddComplete'])->name('item.addComplete');

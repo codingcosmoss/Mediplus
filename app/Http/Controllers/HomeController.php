@@ -103,7 +103,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemHour' , compact('items' , 'array' , 'section'));
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
     }
 
 
@@ -126,7 +126,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemHelper' , compact('items' , 'array' , 'section'));
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
     }
 
 
@@ -149,7 +149,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('Admin.app.itemNumbers' , compact('items' , 'array' , 'section'));
+        return view('Admin.app.item' , compact('items' , 'array' , 'section'));
     }
 
     
@@ -338,22 +338,7 @@ class HomeController extends Controller
     
     $section = Section::find($item->section_id);
     $items = Item::where('section_id', $section->id )->get();
-    if ($section->name == 'home') {
-
-        return view('Admin.app.item', compact('items'));
-
-    }else if ($section->name == 'hours') {
-        return view('Admin.app.itemHour', compact('items'));
-
-    }else if ($section->name == 'helper') {
-        return view('Admin.app.itemHelper', compact('items'));
-
-    }else if ($section->name == 'numbers') {
-        return view('Admin.app.itemNumbers', compact('items'));
-
-    }
-
-    return view('Admin.app.index');
+    return view('Admin.app.item', compact('items'));
 }
 
 
@@ -389,80 +374,67 @@ public function itemAddComplete(Request $request, $id) {
     // 4. O'zgartirilgan ma'lumotlarni saqlash
     $item->save();
 
-
-    $section = Section::find($item->section_id);
-    $items = Item::where('section_id', $section->id )->get();
-    if ($section->name == 'home') {
-
-        return view('Admin.app.item', compact('items'));
-
-    }else if ($section->name == 'hours') {
-        return view('Admin.app.itemHour', compact('items'));
-
-    }else if ($section->name == 'helper') {
-        return view('Admin.app.itemHelper', compact('items'));
-
-    }else if ($section->name == 'numbers') {
-        return view('Admin.app.itemNumbers', compact('items'));
-
-    }
-
-    return view('Admin.app.index');
-
+    $section = Section::where('id' , $id)->get();
+    $items = Item::where('section_id', $id  )->get();
+    return view('Admin.app.item', compact('items' , 'section'));
 }
 
 
-public function itemHourAddComplete(Request $request, $id) {
+// public function itemHourAddComplete(Request $request, $id) {
 
-    $item = new Item();
-    $button = new Lists();
-    $item->section_id = $id;
-    $item->title = $request->input('title'); // Formadan kelgan yangi title
-    $item->description = $request->input('description'); // Formadan kelgan yangi description
-    $item->text = $request->input('text');
-    $item->link = $request->input('link');
-    if ($request->hasFile('image')) {
-        $paths = [];
-        $images = $request->file('image');
-        foreach ($images as $image){
-            $path = $image->store('images', 'public'); // 'images' papkasi ichiga saqlaydi
-            array_push($paths, $path);
-        }
+//     $item = new Item();
+//     $button = new Lists();
+//     $item->section_id = $id;
+//     $item->title = $request->input('title'); // Formadan kelgan yangi title
+//     $item->description = $request->input('description'); // Formadan kelgan yangi description
+//     $item->text = $request->input('text');
+//     $item->link = $request->input('link');
+//     if ($request->hasFile('image')) {
+//         $paths = [];
+//         $images = $request->file('image');
+//         foreach ($images as $image){
+//             $path = $image->store('images', 'public'); // 'images' papkasi ichiga saqlaydi
+//             array_push($paths, $path);
+//         }
 
-        $item->image = json_encode($paths);
-    }
-    // 4. O'zgartirilgan ma'lumotlarni saqlash
-    $item->save();
-
-
-    return view('Admin.app.index');
-
-}
+//         $item->image = json_encode($paths);
+//     }
+//     // 4. O'zgartirilgan ma'lumotlarni saqlash
+//     $item->save();
 
 
-public function itemDelete(string $id) {
+//     $section = Section::find($item->section_id);
+//     $items = Item::where('section_id', $section->id )->get();
+//     if ($section->name == 'home') {
+
+//         return view('Admin.app.item', compact('items'));
+
+//     }else if ($section->name == 'hours') {
+//         return view('Admin.app.itemHour', compact('items'));
+
+//     }else if ($section->name == 'helper') {
+//         return view('Admin.app.itemHelper', compact('items'));
+
+//     }else if ($section->name == 'numbers') {
+//         return view('Admin.app.itemNumbers', compact('items'));
+
+//     }
+
+//     return view('Admin.app.index');
+
+// }
+
+
+public function itemDelete(string $id , string $slug) {
     $item = Item::find($id);
-
+    
     if($item) {
         $item->delete();
     }
-
-    $section = Section::find($item->section_id);
-    $items = Item::where('section_id', $section->id )->get();
-    if ($section->name == 'home') {
-
-        return view('Admin.app.item', compact('items'));
-
-    }else if ($section->name == 'hours') {
-        return view('Admin.app.itemHour', compact('items'));
-
-    }else if ($section->name == 'helper') {
-        return view('Admin.app.itemHelper', compact('items'));
-
-    }else if ($section->name == 'numbers') {
-        return view('Admin.app.itemNumbers', compact('items'));
-
-    }
+    
+    // $section = Section::where('id', $slug)->first();
+    // $items = Item::where('section_id', $slug)->get();
+    // return view('Admin.app.item', compact('items' , 'section'));
 
     return view('Admin.app.index');
 }
@@ -525,22 +497,22 @@ public function ButtonDelete(string $id , string $slug) {
     $buttonData = Lists::where('item_id' , $id)->get();
     $button->delete();
 
-    $section = Section::find($button->section_id);
-        $items = Item::where('section_id', $section->id )->get();
-        if ($section->name == 'home') {
+    // $section = Section::find($button->section_id);
+    //     $items = Item::where('section_id', $section->id )->get();
+    //     if ($section->name == 'home') {
     
-            return view('Admin.app.item', compact('buttonData'));
+    //         return view('Admin.app.item', compact('buttonData'));
     
-        }else if ($section->name == 'hours') {
-            return view('Admin.app.itemHour', compact('buttonData'));
+    //     }else if ($section->name == 'hours') {
+    //         return view('Admin.app.itemHour', compact('buttonData'));
     
-        }else if ($section->name == 'helper') {
-            return view('Admin.app.itemHelper', compact('buttonData'));
+    //     }else if ($section->name == 'helper') {
+    //         return view('Admin.app.itemHelper', compact('buttonData'));
     
-        }else if ($section->name == 'numbers') {
-            return view('Admin.app.itemNumbers', compact('buttonData'));
+    //     }else if ($section->name == 'numbers') {
+    //         return view('Admin.app.itemNumbers', compact('buttonData'));
     
-        }
+    //     }
 
     return view('Admin.app.index');
 }

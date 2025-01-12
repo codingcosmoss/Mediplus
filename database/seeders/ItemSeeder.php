@@ -167,7 +167,7 @@ class ItemSeeder extends Seeder
             $newSliderItem->section_id = $sectionId;
             $newSliderItem->title = 'Plastic Suggery';
             $newSliderItem->text = '199$';
-            // $newSliderItem->link = 'example.com/link';
+            $newSliderItem->link = 'example.com/link';
             $newSliderItem->image = 'images/46.jpg';
             $newSliderItem->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.';
             $newSliderItem->save();
@@ -177,7 +177,7 @@ class ItemSeeder extends Seeder
         
         $medicalNews = ['Item 1' , 'Item 2' , 'Item 3'];
                 
-        foreach ($pricesItems as $key => $value) {
+        foreach ($medicalNews as $key => $value) {
             $section = Section::where('name', 'medicalNews')->first();
             $sectionId = $section ? $section->id : null;
     

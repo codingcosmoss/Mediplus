@@ -277,14 +277,16 @@ License: You must have a valid license purchased only from themeforest(the above
 														<input type="text" class="form-control" placeholder="Enter text" name='title' value="{{ $item[0]['title'] }}" >
 														<span class="form-text text-muted">We'll never share your email with anyone else.</span>
 													</div>
-													@if (!in_array($item[0]['section_id'], [7 , 8 , 10]))
-													<div class="form-group">
-														<label for="exampleInputPassword1">Text</label>
-														<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter text" name="text" value="{{ $item[0]['text'] }}" >
-													</div>
-													@endif
+													@if (!empty($item[0]['text']))
+    <div class="form-group">
+        <label for="exampleInputPassword1">Text</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter text" name="text" value="{{ $item[0]['text'] }}">
+    </div>
+@endif
 
-													@if (!in_array($item[0]['section_id'], [1, 3 , 4 , 6 , 7]))
+
+@if (!empty($item[0]['description']))
+
     <div class="form-group">
         <label>Description:</label>
         <input type='text' class="form-control" name='description' value="{{ $item[0]['description'] }}" >
@@ -292,7 +294,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	@endif
 
 
-	@if (!in_array($item[0]['section_id'], [1, 2 , 3 , 4 , 8, 9, 10]))
+	@if (!empty($item[0]['link']))
 
     <div class="form-group">
         <label>Link:</label>
