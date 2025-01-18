@@ -19,7 +19,7 @@ class ButtonSeeder extends Seeder
 
 foreach ($sections as $section) { // Har bir section id uchun loop
     $newSliderButton = new Lists();
-    $newSliderButton->section_id = $section; // section_id ni tayinlash
+    $newSliderButton->section_id = 1; // section_id ni tayinlash
     $newSliderButton->item_id = $section;   // item_id ni tayinlash
     $newSliderButton->title = 'Slider button'; // Faqat bitta umumiy title
     $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';
@@ -27,7 +27,7 @@ foreach ($sections as $section) { // Har bir section id uchun loop
 
     // Ikkinchi yozuvni ham takrorlaymiz
     $newSliderButton = new Lists();
-    $newSliderButton->section_id = $section; // section_id ni tayinlash
+    $newSliderButton->section_id = 1; // section_id ni tayinlash
     $newSliderButton->item_id = $section;   // item_id ni tayinlash
     $newSliderButton->title = 'Slider button'; // Faqat bitta umumiy title
     $newSliderButton->link = 'file:///C:/Users/aslbe/AppData/Local/Temp/Rar$EXa10804.16008.rartemp/demo1/dist/assets/media/svg/misc/006-plurk.svg';

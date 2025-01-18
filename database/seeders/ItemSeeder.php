@@ -184,7 +184,7 @@ class ItemSeeder extends Seeder
             // Har bir iteratsiya uchun yangi Item ob'ekti yaratish
             $newSliderItem = new Item();
             $newSliderItem->section_id = $sectionId;
-            $newSliderItem->title = 'Top five way for solving teeth problems.';
+            $newSliderItem->title = 'We have annnocuced our new product.';
             // $newSliderItem->text = 'Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.';
             // $newSliderItem->link = 'example.com/link';
             $newSliderItem->image = 'images/46.jpg';

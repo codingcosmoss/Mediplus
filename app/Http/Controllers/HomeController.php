@@ -22,8 +22,28 @@ class HomeController extends Controller
     public function index()
     {
         $home = Section::where('name', 'home')->first();
-
-        return view('home', compact('home'));
+        $hours = Section::where('name', 'hours')->first();
+        $helper = Section::where('name', 'helper')->first();
+        $numbers = Section::where('name' , 'numbers')->first();
+        $health = Section::where('name' , 'health')->first();
+        $call = Section::where('name' , 'call')->first();
+        $images = Section::where('name' , 'images')->first();
+        $differentServices = Section::where('name' , 'differentServices')->first();
+        $prices = Section::where('name' , 'prices')->first();
+        $medicalNews = Section::where('name' , 'medicalNews')->first();
+        // 'items' bilan bog'langan 'lists'larni olish
+        $homeItemsWithLists = $home->items()->with('lists')->get();
+        $hoursItemsWithLists = $hours->items()->with('lists')->get();
+        $helperItemsWithLists = $helper->items()->with('lists')->get();
+        $numbersItemsWithList = $numbers->items()->with('lists')->get();
+        $healthItemsWithList = $health->items()->with('lists')->get();
+        $callItemsWithList = $call->items()->with('lists')->get();
+        $imagesItemsWithList = $images->items()->with('lists')->get();
+        $differentServicesItemsWithList = $differentServices->items()->with('lists')->get();
+        $pricesItemsWithList = $prices->items()->with('lists')->get();
+        $medicalNewsItems = $medicalNews->items()->with('lists')->get();
+        return view('home', compact('home', 'hours', 'helper' , 'health', 'numbers', 'call', 'images' , 'medicalNews', 'differentServices', 'prices', 'homeItemsWithLists', 'hoursItemsWithLists' , 'helperItemsWithLists' , 'numbersItemsWithList' , 'healthItemsWithList' , 'callItemsWithList' , 'imagesItemsWithList' , 'differentServicesItemsWithList' , 'pricesItemsWithList' , 'medicalNewsItems'));
+        
     }
 
     /**
@@ -479,22 +499,8 @@ public function ButtonUpdate(Request $request, string $id , string $slug) {
 
         $section = Section::find($button->section_id);
         $items = Item::where('section_id', $section->id )->get();
-        if ($section->name == 'home') {
-    
-            return view('Admin.app.item', compact('buttonData'));
-    
-        }else if ($section->name == 'hours') {
-            return view('Admin.app.itemHour', compact('buttonData'));
-    
-        }else if ($section->name == 'helper') {
-            return view('Admin.app.itemHelper', compact('buttonData'));
-    
-        }else if ($section->name == 'numbers') {
-            return view('Admin.app.itemNumbers', compact('buttonData'));
-    
-        }
 
-        return view('Admin.app.index');
+        return view('Admin.app.item' , compact('items' , 'section'));
     } else {
         return response()->json(['message' => 'Ma\'lumot topilmadi!'], 404);
     }

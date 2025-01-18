@@ -53,8 +53,8 @@ $newSection6->save();
 
 $newSection7 = new Section();
 $newSection7->name = 'images';
-$newSection7->title = 'Images section';
-// $newSection5->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
+$newSection7->title = 'We Maintain Cleanliness Rules Inside Our Hospital';
+$newSection7->text = 'Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts';
 $newSection7->save();
 
 

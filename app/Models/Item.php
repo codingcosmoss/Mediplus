@@ -9,9 +9,14 @@ class Item extends Model
 {
     use HasFactory;
 
-    public function section(){
-
+    public function section()
+    {
         return $this->belongsTo(Section::class);
+    }
 
+    public function lists()  // Yangi aloqani qo'shish
+    {
+        return $this->hasMany(Lists::class);  // Agar 'lists' bo'lsa, u holda 'List' modelini o'rnatish
     }
 }
+

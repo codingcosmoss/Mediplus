@@ -167,58 +167,28 @@
 		<section class="slider">
 			<div class="hero-slider">
 				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('{{asset('')}}asset/img/slider2.jpg')">
+				@foreach ($homeItemsWithLists as $item)
+				<div class="single-slider" style="background-image:url('{{asset('')}}storage/{{$item->image}}')">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7">
 								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+								<h1>{{$item->title}}</h1>
+									<!-- <h1><span>Medical</span> Services That You Can <span>Trust!</span></h1> -->
+									<p>{{$item->text}}</p>
 									<div class="button">
-										<a href="#" class="btn">Get Appointment</a>
-										<a href="#" class="btn primary">Learn More</a>
+									@foreach ($item->lists as $list)
+    <a href="{{ $list->link }}" class="btn primary">{{ $list->title }}</a>
+@endforeach
+
+
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- End Single Slider -->
-				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('{{asset('')}}asset/img/slider.jpg')">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
-									<div class="button">
-										<a href="#" class="btn">Get Appointment</a>
-										<a href="#" class="btn primary">About Us</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Start End Slider -->
-				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('{{asset('')}}asset/img/slider3.jpg')">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
-									<div class="button">
-										<a href="#" class="btn">Get Appointment</a>
-										<a href="#" class="btn primary">Conatct Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				@endforeach
 				<!-- End Single Slider -->
 			</div>
 		</section>
@@ -229,6 +199,7 @@
 			<div class="container">
 				<div class="schedule-inner">
 					<div class="row">
+				@foreach ($hoursItemsWithLists as $item)
 						<div class="col-lg-4 col-md-6 col-12 ">
 							<!-- single-schedule -->
 							<div class="single-schedule first">
@@ -237,50 +208,20 @@
 										<i class="fa fa-ambulance"></i>
 									</div>
 									<div class="single-content">
-										<span>Lorem Amet</span>
-										<h4>Emergency Cases</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+										<span>{{$item->text}}</span>
+										<h4>{{$item->title}}</h4>
+										<p>{{$item->description}}</p>
+
+										<!-- {{$hours->lists}} -->
+										@foreach ($item->lists as $list)
+										<a href="{{ $list->link }}">{{$list->title}}<i class="fa fa-long-arrow-right"></i></a>
+										@endforeach
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule middle">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-prescription"></i>
-									</div>
-									<div class="single-content">
-										<span>Fusce Porttitor</span>
-										<h4>Doctors Timetable</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-12 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule last">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-ui-clock"></i>
-									</div>
-									<div class="single-content">
-										<span>Donec luctus</span>
-										<h4>Opening Hours</h4>
-										<ul class="time-sidual">
-											<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-											<li class="day">Saturday <span>9.00-18.30</span></li>
-											<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-										</ul>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
+						@endforeach
+				
 					</div>
 				</div>
 			</div>
@@ -293,46 +234,26 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Are Always Ready to Help You & Your Family</h2>
+							<h2>{{$helper['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$helper['text']}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-12">
-						<!-- Start Single features -->
-						<div class="single-features">
-							<div class="signle-icon">
-								<i class="icofont icofont-ambulance-cross"></i>
-							</div>
-							<h3>Emergency Help</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
-						</div>
-						<!-- End Single features -->
-					</div>
-					<div class="col-lg-4 col-12">
-						<!-- Start Single features -->
-						<div class="single-features">
-							<div class="signle-icon">
-								<i class="icofont icofont-medical-sign-alt"></i>
-							</div>
-							<h3>Enriched Pharmecy</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
-						</div>
-						<!-- End Single features -->
-					</div>
-					<div class="col-lg-4 col-12">
-						<!-- Start Single features -->
-						<div class="single-features last">
-							<div class="signle-icon">
-								<i class="icofont icofont-stethoscope"></i>
-							</div>
-							<h3>Medical Treatment</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
-						</div>
-						<!-- End Single features -->
-					</div>
+				@foreach ($helperItemsWithLists as $item)
+    <div class="col-lg-4 col-12">
+        <div class="single-features">
+            <div class="signle-icon">
+                <i class="icofont icofont-ambulance-cross"></i>
+            </div>
+            <h3>{{ $item->title }}</h3>
+            <p>{{$item->text}}</p>
+        </div>
+    </div>
+@endforeach
+
+					
 				</div>
 			</div>
 		</section>
@@ -342,50 +263,21 @@
 		<div id="fun-facts" class="fun-facts section overlay">
 			<div class="container">
 				<div class="row">
+				@foreach ($numbersItemsWithList as $item)
 					<div class="col-lg-3 col-md-6 col-12">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
 							<i class="icofont icofont-home"></i>
 							<div class="content">
-								<span class="counter">3468</span>
-								<p>Hospital Rooms</p>
+								<span class="counter">{{$item->title}}</span>
+								<p>{{$item->text}}</p>
 							</div>
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont icofont-user-alt-3"></i>
-							<div class="content">
-								<span class="counter">557</span>
-								<p>Specialist Doctors</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont-simple-smile"></i>
-							<div class="content">
-								<span class="counter">4379</span>
-								<p>Happy Patients</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun">
-							<i class="icofont icofont-table"></i>
-							<div class="content">
-								<span class="counter">32</span>
-								<p>Years of Experience</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
+@endforeach
+
+				
 				</div>
 			</div>
 		</div>
@@ -397,38 +289,34 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Offer Different Services To Improve Your Health</h2>
+							<h2>{{$health['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$health['text']}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
+				@foreach ($healthItemsWithList as $item)
 					<div class="col-lg-6 col-12">
 						<!-- Start Choose Left -->
 						<div class="choose-left">
-							<h3>Who We Are</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-							<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+							<h3>{{$item->title}}</h3>
+							<p>{{$item->text}}</p>
+							<p>{{$item->description}}</p>
 							<div class="row">
+						
 								<div class="col-lg-6">
 									<ul class="list">
-										<li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-										<li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-										<li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
-									</ul>
-								</div>
-								<div class="col-lg-6">
-									<ul class="list">
-										<li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-										<li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-										<li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
+									@foreach ($item->lists as $list)
+									<li><i class="fa fa-caret-right"></i>{{$list->title}}</li>
+									@endforeach
 									</ul>
 								</div>
 							</div>
 						</div>
 						<!-- End Choose Left -->
 					</div>
+				@endforeach	
 					<div class="col-lg-6 col-12">
 						<!-- Start Choose Rights -->
 						<div class="choose-right">
@@ -457,14 +345,18 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
+						@foreach ($callItemsWithList as $item)
 						<div class="content">
-							<h2>Do you need Emergency Medical Care? Call @ 1234 56789</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis nec gravida.</p>
+							<h2>{{$item->title}}</h2>
+							<p>{{$item->text}}</p>
 							<div class="button">
-								<a href="#" class="btn">Contact Now</a>
-								<a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
+							@foreach ($item->lists as $list)
+								<a href="{{ $list->link }}" class="btn">{{$list->title}}</a>
+								<!-- <a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a> -->
+								@endforeach
 							</div>
 						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -477,9 +369,9 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
+							<h2>{{$images['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$images['text']}}</p>
 						</div>
 					</div>
 				</div>
@@ -488,38 +380,13 @@
 				<div class="row">
 					<div class="col-lg-12 col-12">
 						<div class="owl-carousel portfolio-slider">
+						@foreach ($imagesItemsWithList as $item)
+
 							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<img src="{{asset('')}}storage/{{$item->image}}" alt="Rasm yo'q">
+								<a href="{{ $item->link }}" class="btn">View Details</a>
 							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="{{asset('')}}asset/img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
+						@endforeach
 						</div>
 					</div>
 				</div>
@@ -533,67 +400,24 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Offer Different Services To Improve Your Health</h2>
+							<h2>{{$differentServices['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$differentServices['text']}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
+				@foreach ($differentServicesItemsWithList as $item)
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">General Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">{{$item->title}}</a></h4>
+							<p>{{$item->description}}</p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Teeth Whitening</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Heart Surgery</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">Ear Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Vision Problems</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Blood Transfusion</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</section>
@@ -605,14 +429,15 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Provide You The Best Treatment In Resonable Price</h2>
+							<h2>{{$prices['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$prices['text']}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<!-- Single Table -->
+				@foreach ($pricesItemsWithList as $item)
 					<div class="col-lg-4 col-md-12 col-12">
 						<div class="single-table">
 							<!-- Table Head -->
@@ -620,18 +445,16 @@
 								<div class="icon">
 									<i class="icofont icofont-ui-cut"></i>
 								</div>
-								<h4 class="title">Plastic Suggery</h4>
+								<h4 class="title">{{$item->title}}</h4>
 								<div class="price">
-									<p class="amount">$199<span>/ Per Visit</span></p>
+									<p class="amount">{{$item->text}}<span>/ Per Visit</span></p>
 								</div>	
 							</div>
 							<!-- Table List -->
 							<ul class="table-list">
-								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-								<li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+							@foreach ($item->lists as $list)
+								<li><i class="icofont icofont-ui-check"></i>{{$list->title}}</li>
+								@endforeach
 							</ul>
 							<div class="table-bottom">
 								<a class="btn" href="#">Book Now</a>
@@ -639,62 +462,7 @@
 							<!-- Table Bottom -->
 						</div>
 					</div>
-					<!-- End Single Table-->
-					<!-- Single Table -->
-					<div class="col-lg-4 col-md-12 col-12">
-						<div class="single-table">
-							<!-- Table Head -->
-							<div class="table-head">
-								<div class="icon">
-									<i class="icofont icofont-tooth"></i>
-								</div>
-								<h4 class="title">Teeth Whitening</h4>
-								<div class="price">
-									<p class="amount">$299<span>/ Per Visit</span></p>
-								</div>	
-							</div>
-							<!-- Table List -->
-							<ul class="table-list">
-								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-								<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-							</ul>
-							<div class="table-bottom">
-								<a class="btn" href="#">Book Now</a>
-							</div>
-							<!-- Table Bottom -->
-						</div>
-					</div>
-					<!-- End Single Table-->
-					<!-- Single Table -->
-					<div class="col-lg-4 col-md-12 col-12">
-						<div class="single-table">
-							<!-- Table Head -->
-							<div class="table-head">
-								<div class="icon">
-									<i class="icofont-heart-beat"></i>
-								</div>
-								<h4 class="title">Heart Suggery</h4>
-								<div class="price">
-									<p class="amount">$399<span>/ Per Visit</span></p>
-								</div>	
-							</div>
-							<!-- Table List -->
-							<ul class="table-list">
-								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-								<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-								<li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-								<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
-							</ul>
-							<div class="table-bottom">
-								<a class="btn" href="#">Book Now</a>
-							</div>
-							<!-- Table Bottom -->
-						</div>
-					</div>
+					@endforeach
 					<!-- End Single Table-->
 				</div>	
 			</div>	
@@ -709,22 +477,23 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>Keep up with Our Most Recent Medical News.</h2>
+							<h2>{{$medicalNews['title']}}</h2>
 							<img src="{{asset('')}}asset/img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>{{$medicalNews['text']}}</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
+				@foreach ($medicalNewsItems as $item)
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Single Blog -->
 						<div class="single-news">
 							<div class="news-head">
-								<img src="{{asset('')}}asset/img/blog1.jpg" alt="#">
+								<img src="{{asset('')}}storage/{{$item->image}}" alt="Rasm yo'q">
 							</div>
 							<div class="news-body">
 								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
+									<div class="date">{{$item->updated_at}}</div>
 									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
 									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
@@ -732,38 +501,7 @@
 						</div>
 						<!-- End Single Blog -->
 					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
-							<div class="news-head">
-								<img src="{{asset('')}}asset/img/blog2.jpg" alt="#">
-							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">15 Jul, 2020</div>
-									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
-							<div class="news-head">
-								<img src="{{asset('')}}asset/img/blog3.jpg" alt="#">
-							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Blog -->
-					</div>
+				@endforeach
 				</div>
 			</div>
 		</section>
